@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>学员管理系统-by 贺士凯</title>
+    </head>
+    <body>
+        <!---hello {{ words }}! --->
+        <ul>
+            <h3><li>&nbsp;  姓名&nbsp;&nbsp;  - &nbsp;&nbsp;职业  - 审核状态  - QQ</li></h3>
+            {% for student in students %}
+                <h3><li>{{ student.name }} - {{ student.profession }} -
+                    {{ student.get_status_display }} - {{ student.qq }}</li></h3>
+            {% endfor %}
+        </ul>
+        <hr />
+        <form action = "/" method = "post">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Submit" />
+        </form>
+    </body>
+</html>
